@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { LoginComponent } from "./components/login/login.component";
+import { Component, OnInit } from '@angular/core';
+import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,15 @@ import { LoginComponent } from "./components/login/login.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'NewsletterAngular';
-  isAuth:boolean=false;
+export class AppComponent implements OnInit {
+  isAuth:boolean= false;
+  title:string="HomePage"
+  constructor(private router: Router) {}
+  ngOnInit(): void {
+    if (this.isAuth) {
+      // Giriş yaptıysa ana sayfaya yönlendir
+      this.router.navigate(['/']);
+    }
+  }
 }
+  

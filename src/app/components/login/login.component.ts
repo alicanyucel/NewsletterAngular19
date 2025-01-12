@@ -5,10 +5,12 @@ import { NgForm, ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { CheckInputValidDirective } from '../../directives/check-input-valid.directive';
+import {  HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterModule,CommonModule,FormsModule,ReactiveFormsModule,CheckInputValidDirective],
+  imports: [RouterModule,CommonModule,FormsModule,ReactiveFormsModule,CheckInputValidDirective,HttpClientModule],
+  providers:[AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

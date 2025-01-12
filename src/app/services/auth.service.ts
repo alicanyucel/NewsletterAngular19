@@ -8,15 +8,21 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private _http:HttpClient,
-    private _router:Router) { }
-    login(model:UserModel)
-    {
-      this._http.post<UserModel>(environment.apiUrl+"/Login",model).subscribe({
-        next:(res)=>{
-          localStorage.setItem("user",JSON.stringify(res));
-          this._router.navigateByUrl("/");
-        }
-      })
-    }
+  api: string = "https://localhost:7272/api" + "/Auths";
+  constructor(private _http: HttpClient,
+    private _router: Router) { }
+  login(model: UserModel) {
+                   //DÖNEN DEĞER
+    this._http.post<UserModel>(this.api + "/Login", model).subscribe({
+      next: (res) => {
+        localStorage.setItem("user", JSON.stringify(res)); 
+        this._router.navigateByUrl("/");
+      },
+      error: (err) => {
+        console.error("Login failed", err); 
+        alert("Login failed. Please try again."); 
+      }
+    });
+
+  }
 }

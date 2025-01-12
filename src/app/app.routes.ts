@@ -10,6 +10,10 @@ export const routes: Routes = [
         component:HomePageComponent
     },
     {
+        path:'homepage',
+        component:HomePageComponent
+    },
+    {
         path:'haberler',
         component:NewsletterComponent
     },

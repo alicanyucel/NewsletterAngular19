@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  api: string = "https://localhost:7272/api" + "/Auths";
+  api:any=environment.apiUrl + "/Auths";
   constructor(private _http: HttpClient,
     private _router: Router) { }
   login(model: UserModel) {
@@ -19,8 +19,8 @@ export class AuthService {
         this._router.navigateByUrl("/");
       },
       error: (err) => {
-        console.error("Login failed", err); 
-        alert("Login failed. Please try again."); 
+        console.error("Tekrar Deneyin", err); 
+        alert("Tekrar Deneyin"); 
       }
     });
 

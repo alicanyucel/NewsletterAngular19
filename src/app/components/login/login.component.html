@@ -1,16 +1,22 @@
-<div class="container">
-    <div class="col-md-4">
-        <form action="">
+<div class="container mt-4">
+    <div class="col-md-4 offset-4">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
             <div class="form-group">
-                <label for="userName">Kullanıcı Adı/Mail Adresi</label>
-                <input type="text" name="userName" required minlength="3" class="form-control">
+                <label for="UserName">User Name/Email</label>
+                <input type="text"  #userName [appCheckInputValid]="userName" ngModel name="UserName" required minlength="5" class="form-control">
+                <div class="valid-feedback">
+                  User Name/ Email is required
+                </div>
             </div>
             <div class="form-group mt-2">
                 <label for="password">Şifre</label>
-                <input type="password" name="password" required class="form-control">
+                <input type="password" #password [appCheckInputValid]="password" ngModel name="password"  required minlength="5" class="form-control">
+                <div class="invalid-feedback">
+                    password  is required
+                  </div>
             </div>
             <div class="form-group mt-2">
-              <button class="btn btn-primary">Giriş Yap</button>
+                <button class="btn btn-primary w-100" [disabled]="!loginForm.valid">Sign In</button>
             </div>
         </form>
     </div>

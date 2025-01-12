@@ -5,10 +5,10 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class CheckInputValidDirective {
 
-  @Input() appCheckInputValid:any;
+  @Input() appCheckInputValid:HTMLInputElement;
   
   constructor(
-    private _el:ElementRef<any>
+    private _el:ElementRef<HTMLInputElement>
   ) { }
 @HostListener("keyup") keyup(){
   this._el.nativeElement.className="";

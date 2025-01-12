@@ -14,7 +14,7 @@ export const routes: Routes = [
         component:HomePageComponent
     },
     {
-        path:'haberler',
+        path:'newslatter',
         component:NewsletterComponent
     },
     {

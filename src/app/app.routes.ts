@@ -7,16 +7,16 @@ import { AddComponent } from './components/newslatter/add/add.component';
 import { UpdateComponent } from './components/newslatter/update/update.component';
 import { HomePageComponent } from './components/homepage/homepage.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: "",
         component: HomePageComponent,
-        canActivate: [AuthGuard]
+       
       },
     {
-      path: "haberler",
+      path: "newslatter",
       component: NewsletterComponent,
-      canActivate: [AuthGuard]
+    
     },
     {
       path: "login",
@@ -25,12 +25,11 @@ const routes: Routes = [
     {
       path: "add",
       component: AddComponent,
-      canActivate: [AuthGuard]
+    
     },
     {
       path: "update/:value",
       component: UpdateComponent,
-      canActivate: [AuthGuard]
     },
     
   { path: '**', component: NotFoundComponent }

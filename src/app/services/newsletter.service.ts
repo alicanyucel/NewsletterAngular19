@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class NewsletterService {
-  api: string = environment.apiUrl + "/NewsLetter";
+  api: string = environment.apiUrl + "/News";
   constructor(
     private _http: HttpClient,
     private _toastr: ToastrService,

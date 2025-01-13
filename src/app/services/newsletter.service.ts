@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class NewsletterService {
-  api: string = environment.apiUrl + "/News";
+  api: string = environment.apiUrl +"News/";
   constructor(
     private _http: HttpClient,
     private _toastr: ToastrService,
@@ -46,7 +46,7 @@ export class NewsletterService {
     })
   }
   getList(callBack: (res: NewsletterModel[]) => void) {
-    this._http.get<NewsletterModel[]>(this.api).subscribe({
+    this._http.get<NewsletterModel[]>(this.api+"Get").subscribe({
       next: (res) => {
         callBack(res)
       }
